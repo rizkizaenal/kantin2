@@ -10,6 +10,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/redirects', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -19,3 +21,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+use App\Livewire\Counter;
+ 
+Route::get('/counter', Counter::class);
